@@ -1,6 +1,6 @@
 import React from 'react';
 import { Platform } from 'react-native';
-import { createStackNavigator, createBottomTabNavigator } from 'react-navigation';
+import { createStackNavigator, createBottomTabNavigator, createMaterialTopTabNavigator } from 'react-navigation';
 
 import TabBarIcon from '../components/TabBarIcon';
 import HomeScreen from '../screens/HomeScreen';
@@ -53,8 +53,13 @@ SettingsStack.navigationOptions = {
   ),
 };
 
-export default createBottomTabNavigator({
+const tabOptions = {
   HomeStack,
-  LinksStack,
-  SettingsStack,
-});
+  CollectionStack: LinksStack,
+  MarketStack: SettingsStack,
+};
+const tabNav = (Platform.OS === 'ios') ?
+    createBottomTabNavigator(tabOptions) :
+    createMaterialTopTabNavigator(tabOptions);
+
+export default tabNav;
