@@ -1,8 +1,5 @@
 import React from 'react';
-import { ScrollView, StyleSheet } from 'react-native';
-
-const styles = StyleSheet.create({
-});
+import ScreenView from '../components/ScreenView';
 
 class CollectionScreen extends React.Component {
   static navigationOptions = {
@@ -11,8 +8,7 @@ class CollectionScreen extends React.Component {
 
   render() {
     return (
-      <ScrollView style={styles.container}>
-      </ScrollView>
+      <ScreenView />
     );
   }
 }

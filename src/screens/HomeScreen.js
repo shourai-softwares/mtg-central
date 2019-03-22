@@ -1,11 +1,5 @@
 import React from 'react';
-import {
-  StyleSheet,
-  View,
-} from 'react-native';
-
-const styles = StyleSheet.create({
-});
+import ScreenView from '../components/ScreenView';
 
 class HomeScreen extends React.Component {
   static navigationOptions = {
@@ -14,9 +8,7 @@ class HomeScreen extends React.Component {
 
   render() {
     return (
-      <View style={styles.container}>
-
-      </View>
+      <ScreenView />
     );
   }
 }

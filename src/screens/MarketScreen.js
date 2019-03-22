@@ -1,5 +1,5 @@
 import React from 'react';
-import { View } from 'react-native';
+import ScreenView from '../components/ScreenView';
 
 class MarketScreen extends React.Component {
   static navigationOptions = {
@@ -7,7 +7,7 @@ class MarketScreen extends React.Component {
   };
 
   render() {
-    return <View />;
+    return <ScreenView />;
   }
 }
 
