@@ -1,14 +1,14 @@
 import React from 'react';
-import { View } from 'react-native';
 import { createAppContainer, createStackNavigator } from 'react-navigation';
 
-import MainTabNavigator from './MainDrawer';
+import MainDrawer from './MainDrawer';
+import TopBar from '../components/TopBar';
 
 export default createAppContainer(createStackNavigator({
   Main: {
-    screen: MainTabNavigator,
-    navigationOptions: {
-      header: <View style={{ backgroundColor: '#697268', height: 75 }} />,
-    },
+    screen: MainDrawer,
+    navigationOptions: ({ navigation }) => ({
+      header: <TopBar navigation={navigation} />,
+    }),
   },
 }));

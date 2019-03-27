@@ -1,14 +1,14 @@
 import React from 'react';
 import { createDrawerNavigator } from 'react-navigation';
 
-import CollectionScreen from '../screens/CollectionScreen';
+import CollectionTabs from './CollectionTabs';
 import DBScreen from '../screens/DBScreen';
 import HomeScreen from '../screens/HomeScreen';
 import MarketScreen from '../screens/MarketScreen';
 
 const drawerNav = createDrawerNavigator({
   Home: HomeScreen,
-  Collection: CollectionScreen,
+  Collection: CollectionTabs,
   Market: MarketScreen,
   DataBase: DBScreen,
 }, {
