@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
@@ -15,16 +15,31 @@ const styles = StyleSheet.create({
   },
 });
 
-const TopBar = ({ navigation }) => (
-  <View style={styles.container}>
-    <TouchableOpacity style={styles.button} onPress={() => navigation.openDrawer()}>
-      <Ionicons name="md-menu" size={30} color="white" />
-    </TouchableOpacity>
-    <Text>Hey</Text>
-  </View>
-);
-TopBar.propTypes = {
-  navigation: PropTypes.object,
-};
+class TopBar extends PureComponent {
+  static propTypes = {
+    navigation: PropTypes.object,
+  };
+
+  handleIconPress = () => {
+    if (this.props.navigation.state.isDrawerOpen) {
+      this.props.navigation.closeDrawer();
+    } else {
+      this.props.navigation.openDrawer();
+    }
+  };
+
+  render() {
+    const icon = this.props.navigation.state.isDrawerOpen ? 'md-close' : 'md-menu';
+
+    return (
+      <View style={styles.container}>
+        <TouchableOpacity style={styles.button} onPress={this.handleIconPress}>
+          <Ionicons name={icon} size={30} color="white" />
+        </TouchableOpacity>
+        <Text>Hey</Text>
+      </View>
+    );
+  }
+}
 
 export default TopBar;
